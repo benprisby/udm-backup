@@ -1,0 +1,12 @@
+{
+    "cron_schedule": "0 3 * * *",
+    "udm": {
+        "address": "unifi",
+        "ssh_password": "<password>"
+    },
+    "smb": {
+        "username": "udmbackup",
+        "password": "<password>",
+        "share": "<server>/backups"
+    }
+}

@@ -1,0 +1,59 @@
+[tool.poetry]
+name = "bdp-udm-backup"
+version = "0.0.0"
+description = "Utility to copy Unifi Dream Machine backups to an SMB share"
+authors = ["Ben Prisby <ben@benprisby.com>"]
+readme = "README.md"
+packages = [{include = "bdp"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+croniter = "^1.3.7"
+flatdict = "^4.0.1"
+humanize = "^4.4.0"
+jsonschema = "^4.16.0"
+smbprotocol = "^1.9.0"
+
+[tool.poetry.group.dev.dependencies]
+mypy = "^0.982"
+pre-commit = "^2.20.0"
+pylint = "^2.15.4"
+toml = "^0.10.2"
+types-croniter = "^1.3.2"
+yapf = "^0.32.0"
+
+[build-system]
+requires = ["poetry-core>=1.2.0", "poetry-dynamic-versioning"]
+build-backend = "poetry_dynamic_versioning.backend"
+
+[tool.poetry-dynamic-versioning]
+enable = true
+
+[tool.mypy]
+strict = true
+show_error_codes = true
+namespace_packages = true
+explicit_package_bases = true
+exclude = [
+  ".*\\.venv",
+  "^dist"
+]
+
+[[tool.mypy.overrides]]
+module = [
+  "flatdict",
+  "jsonschema",
+  "smbclient",
+  "smbprotocol"
+]
+ignore_missing_imports = true
+
+[tool.yapf]
+based_on_style = "google"
+column_limit = 120
+
+[tool.yapfignore]
+ignore_patterns = [
+  ".venv/**",
+  "dist/**"
+]
