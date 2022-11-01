@@ -1,0 +1,52 @@
+{
+    "$schema": "https://json-schema.org/draft-07/schema",
+    "title": "Backup configuration",
+    "type": "object",
+    "properties": {
+        "cron_schedule": {
+            "type": "string",
+            "description": "Cron expression to perform backups on",
+            "minLength": 1
+        },
+        "udm": {
+            "type": "object",
+            "description": "Unifi Dream Machine information",
+            "properties": {
+                "address": {
+                    "type": "string",
+                    "description": "UDM IP address or hostname",
+                    "minLength": 1
+                },
+                "ssh_password": {
+                    "type": "string",
+                    "description": "UDM root SSH password",
+                    "minLength": 1
+                }
+            },
+            "required": [ "address", "ssh_password" ]
+        },
+        "smb": {
+            "type": "object",
+            "description": "SMB connection information",
+            "properties": {
+                "username": {
+                    "type": "string",
+                    "description": "SMB username",
+                    "minLength": 1
+                },
+                "password": {
+                    "type": "string",
+                    "description": "SMB password",
+                    "minLength": 1
+                },
+                "share": {
+                    "type": "string",
+                    "description": "SMB share to back up to",
+                    "minLength": 1
+                }
+            },
+            "required": [ "username", "password", "share" ]
+        }
+    },
+    "required": [ "cron_schedule", "udm", "smb" ]
+}

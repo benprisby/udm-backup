@@ -1,0 +1,11 @@
+{
+    "json.schemas": [
+        {
+            "fileMatch": [
+                "/config.json",
+                "/config.sample.json"
+            ],
+            "url": "./bdp/udmbackup/config.schema.json"
+        }
+    ]
+}
