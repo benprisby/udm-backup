@@ -7,7 +7,5 @@
             ],
             "url": "./bdp/udmbackup/config.schema.json"
         }
-    ],
-    "markdown.extension.list.indentationSize": "inherit",
-    "markdown.extension.toc.slugifyMode": "github"
+    ]
 }
