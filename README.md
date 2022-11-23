@@ -83,12 +83,15 @@ them.
 
 | Property           | Data Type | Description |
 | ------------------ | --------- | ----------- |
-| `cron_schedule`    | `string`  | [Cron expression](https://crontab.guru) to perform backups on, which should closely align with the Auto Backup settings on the UDM |
+| `cron_schedule`    | `string`  | UTC [Cron expression](https://crontab.guru) to perform backups on, which should closely align with the Auto Backup settings on the UDM |
 | `udm.address`      | `string`  | UDM IP address or hostname |
 | `udm.ssh_password` | `string`  | UDM root SSH password |
 | `smb.username`     | `string`  | SMB username |
 | `smb.password`     | `string`  | SMB password |
 | `smb.share`        | `string`  | SMB share to back up to |
+
+**NOTE**: The backup schedule configured on the UDM is likely represented in local time, while the above schedule is
+interpreted as UTC. Ensure any timezone offsets are taken into account when setting this property.
 
 ## Running
 
