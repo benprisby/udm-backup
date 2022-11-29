@@ -143,7 +143,7 @@ mapped configuration file:
 
 ```shell
 docker build -t udm-backup .
-docker run -d --restart=on-failure --name udm-backup \
+docker run -d --restart=unless-stopped --name udm-backup \
     -v /path/to/config.json:/config.json udm-backup
 ```
 
