@@ -90,9 +90,6 @@ them.
 | `smb.password`     | `string`  | SMB password |
 | `smb.share`        | `string`  | SMB share to back up to |
 
-**NOTE**: The backup schedule configured on the UDM is likely represented in local time, while the above schedule is
-interpreted as UTC. Ensure any timezone offsets are taken into account when setting this property.
-
 ## Running
 
 [Install Poetry](https://python-poetry.org/docs/#installation) and the required plugin:
