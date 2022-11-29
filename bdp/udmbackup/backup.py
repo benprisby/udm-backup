@@ -105,10 +105,9 @@ class Backup:
 
             logger.info('Successfully completed backup of %s files', len(local_files))
 
-        next_backup_duration = self._schedule.get_next() - time.time()
-        self._backup_timer = threading.Timer(next_backup_duration, self.backup)
+        next_backup_time = self._schedule.get_next(datetime.datetime)
+        next_backup_interval = next_backup_time.timestamp() - time.time()
+        self._backup_timer = threading.Timer(next_backup_interval, self.backup)
         self._backup_timer.start()
-        logger.info(
-            'Next backup at: %s (in %d seconds)',
-            self._schedule.get_next(datetime.datetime).astimezone(datetime.timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ'),
-            next_backup_duration)
+        logger.info('Next backup at: %s (in %d seconds)', next_backup_time.strftime('%Y-%m-%dT%H:%M:%SZ'),
+                    next_backup_interval)
